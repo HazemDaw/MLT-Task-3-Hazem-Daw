@@ -3,7 +3,7 @@
 **Hazem Daw | Group J4132**  
 Machine Learning Technologies, ITMO University, 2026
 
-Logistic regression on the biological response dataset, comparing gradient descent (GD), stochastic gradient descent (SGD) and Adam. The implementation uses NumPy.
+Logistic regression on the biological response dataset, comparing gradient descent (GD), stochastic gradient descent (SGD) and Adam. The model and optimization algorithms use NumPy; plots use Matplotlib.
 
 **[Open the notebook](Task_3_Hazem_Daw_Group_J4132.ipynb)** for the calculations, learning curves and conclusions. All outputs are saved.
 
@@ -27,27 +27,25 @@ The majority-class baseline gives 54.26% accuracy. SGD has the highest test accu
 
 Small learning rates slow down GD within the 200-epoch budget. Larger rates for SGD and Adam often improve the training fit while worsening validation loss. The best rate depends on the optimizer and the evaluation criterion.
 
-![Training loss over 200 epochs](figures/final_loss_epochs.svg)
+![Training loss over 200 epochs](figures/final_loss_epochs.png)
 
 An epoch is one pass through the training data. The notebook also plots loss against the actual number of parameter updates and includes curves for all 15 learning-rate experiments.
 
 ## Running the analysis
 
-Clone or download the repository, then run these commands from its folder:
+Clone or download the repository and install the dependencies:
 
 ```bash
 python -m pip install -r requirements.txt
-python task3_solution.py
 ```
 
-Alternatively, open the notebook in Jupyter and select **Restart Kernel and Run All**. Keep `bioresponse.csv`, `figures/` and `results/` in the same folder as the notebook. The saved run used Python 3.11+ and NumPy 2.3.5.
+Open the notebook in Jupyter and select **Restart Kernel and Run All**. Keep `bioresponse.csv`, `figures/` and `results/` in the same folder as the notebook. The saved run used Python 3.11, NumPy 2.4.6 and Matplotlib 3.11.2.
 
-The only package imported by the solution is NumPy. SVG plots are produced with Python string operations. The implementation includes finite-difference gradient checks and checks of the SGD and Adam updates.
+NumPy handles data loading, preprocessing, training and evaluation. Matplotlib is used only for visualization. The implementation includes finite-difference gradient checks and checks of the SGD and Adam updates.
 
 ## Files
 
 - [Notebook](Task_3_Hazem_Daw_Group_J4132.ipynb): implementation, experiments and discussion.
-- [Python script](task3_solution.py): the same analysis in script form.
 - [Dataset](bioresponse.csv): the CSV provided with the assignment.
 - [Figures](figures/): learning curves and learning-rate comparisons.
 - [Results](results/): experiment tables, loss histories and fitted parameters.
